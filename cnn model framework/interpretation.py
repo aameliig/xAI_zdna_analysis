@@ -109,7 +109,7 @@ def get_ranked_features(features_weights):
             continue
 
         mean = features_weights[column].mean()
-        p_deviation[f'{column}_p_deviation'] = (((features_weights[column] - mean) / mean) * 100).abs() # считаем процентное среднее
+        p_deviation[f'{column}_p_deviation'] = (((features_weights[column] - mean) / mean) * 100) #.abs() # считаем процентное среднее
 
     p_deviation['mean_deviation'] = p_deviation.mean(axis=1)
     features_range = p_deviation[['mean_deviation']].sort_values(by='mean_deviation', ascending=False)
